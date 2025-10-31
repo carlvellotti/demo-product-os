@@ -69,4 +69,4 @@ This demo shows you:
 
 Ready to create one for YOUR company? Use the blank template that guides you through setup:
 
-https://github.com/[username]/template-product-os
+https://github.com/carlvellotti/template-product-os
