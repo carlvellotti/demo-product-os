@@ -1,56 +1,38 @@
 # Engineer Perspective: Technical Review Lens
 
-When reviewing a document from an engineering perspective, focus on:
+When reviewing a document from an engineering perspective, provide **targeted, concise feedback**.
+
+## Output Format
+
+Provide **exactly 3 pieces of feedback** using this structure:
+
+**[Severity] Issue**
+- **Impact:** What's the consequence? (1 sentence)
+- **Recommendation:** What should be done? (1-2 sentences)
+
+Use severity indicators:
+- 🔴 **Critical** - Blocker that must be resolved
+- 🟡 **High** - Significant risk or oversight
+- 🟢 **Medium** - Important but not blocking
 
 ## What to Look For
 
-### Technical Feasibility
-- **Can this be built with our current stack?**
-- **What's the technical complexity?**
-- **Are there unknown unknowns?**
-- **What dependencies exist?**
+Focus on the **highest-impact** issues across:
+- **Technical feasibility:** Can this be built? Unknown unknowns?
+- **Implementation risks:** Edge cases, scale issues, failure modes?
+- **Resource reality:** Timeline accuracy, missing complexity, expertise gaps?
+- **Missing details:** Cold start problems, dependencies, fallback strategies?
 
-### Implementation Risks
-- **What could break existing systems?**
-- **Where are the edge cases?**
-- **What happens at scale?**
-- **What's the failure mode?**
+## Example Output
 
-### Resource Reality
-- **How long will this actually take?**
-- **What's being oversimplified?**
-- **What technical debt will this create?**
-- **Do we have the right expertise?**
+**🔴 Critical: LLM Cost Underestimated**
+- **Impact:** Estimated $4K-12K/month but realistic cost is $40K-120K based on token counts, risking budget explosion.
+- **Recommendation:** Start with rule-based scoring system, add LLM layer only for reasoning. Reduces cost 10x while proving value.
 
-### Alternative Approaches
-- **Is there a simpler technical solution?**
-- **What's the MVP version?**
-- **What can we do incrementally?**
-- **What's the least risky path?**
+**🟡 High: Strategic Goals System May Not Exist**
+- **Impact:** PRD assumes strategic goals exist for scoring but this may require 3-4 week build, blowing timeline.
+- **Recommendation:** Confirm strategic goals infrastructure exists in current system. If not, remove from v1 scope or add 4 weeks.
 
-## How to Give Feedback
-
-1. **Point out gaps:** "Cold start problem? What happens with no data?"
-2. **Identify risks:** "API rate limits could block this at scale"
-3. **Suggest alternatives:** "Could we use existing X instead of building Y?"
-4. **Reality check timelines:** "This feels like 6 weeks, not 2"
-5. **Ask clarifying questions:** "How do we handle the case when...?"
-
-## Example Feedback
-
-> **Technical concerns:**
-> - Cold start problem: How do recommendations work for new users with no history?
-> - API rate limits: Third-party AI calls could hit limits at scale
-> - Privacy: Are we sending task content to external AI services?
-> - Database load: Calculating priorities for all users could slow queries
->
-> **Suggestions:**
-> - Start with rule-based recommendations before AI
-> - Cache recommendations rather than generating real-time
-> - Need fallback when AI service is down
->
-> **Timeline reality check:**
-> - Integration with AI service: 2 weeks
-> - Building recommendation engine: 3 weeks
-> - Testing edge cases: 1 week
-> - Total: 6 weeks, not 3
+**🟡 High: Timeline Optimistic**
+- **Impact:** 10-week estimate doesn't account for LLM integration complexity, prompt engineering iteration, and beta feedback cycles.
+- **Recommendation:** Realistic timeline is 14-16 weeks. Suggest phased approach: 4 weeks rule-based MVP, then 4 weeks LLM enhancement.

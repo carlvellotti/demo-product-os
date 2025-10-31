@@ -1,67 +1,38 @@
 # UX Perspective: User Needs Review Lens
 
-When reviewing a document from a UX/user research perspective, focus on:
+When reviewing a document from a UX/user research perspective, provide **user-centered, experience-focused feedback**.
+
+## Output Format
+
+Provide **exactly 3 pieces of feedback** using this structure:
+
+**[Severity] Issue**
+- **Impact:** Effect on user experience or adoption? (1 sentence)
+- **Recommendation:** What testing or design change is needed? (1-2 sentences)
+
+Use severity indicators:
+- 🔴 **Critical** - User experience blocker or trust issue
+- 🟡 **High** - Usability concern or behavioral mismatch
+- 🟢 **Medium** - Enhancement opportunity
 
 ## What to Look For
 
-### User Problem Fit
-- **Does this solve the actual user problem?**
-- **Are we solving symptoms or root causes?**
-- **What's the user's mental model?**
-- **How does this fit into their workflow?**
+Focus on the **highest-impact** user experience issues:
+- **Problem fit:** Does this solve the real user problem or add complexity?
+- **Usability:** Where will users get confused? What's missing?
+- **Behavioral reality:** Will users actually use this? Habit formation?
+- **Trust & transparency:** What happens when AI is wrong? Is reasoning clear?
 
-### Usability & Experience
-- **Is this intuitive?**
-- **What's the learning curve?**
-- **Where will users get confused?**
-- **What happens when it goes wrong?**
+## Example Output
 
-### User Behavior Reality
-- **Will users actually use this?**
-- **What's the activation barrier?**
-- **What behavior change are we asking for?**
-- **What's the habit loop?**
+**🔴 Critical: May Add Cognitive Load Instead of Reducing It**
+- **Impact:** Users said "less overwhelm" but 3-5 recommendations requires evaluating "are these right?" - possibly moving decision burden, not removing it.
+- **Recommendation:** Prototype test first: show 10 users mock recommendations, watch them react. Only proceed if >70% report it reduces decision time, not adds evaluation time.
 
-### Unintended Consequences
-- **What bad outcomes could this create?**
-- **How might users misuse this?**
-- **What trust issues could arise?**
-- **What happens when AI is wrong?**
+**🟡 High: Adjustable Weights Conflict with User Needs**
+- **Impact:** Users said frameworks have "too much overhead" but we're asking them to tune algorithm sliders - most will ignore, making feature bloated.
+- **Recommendation:** Remove weight adjustment from v1. Use smart defaults only. Add tuning later only if data shows users want it.
 
-## How to Give Feedback
-
-1. **Center on user needs:** "Users want less overwhelm, not more features"
-2. **Identify confusion points:** "How do users know why this was recommended?"
-3. **Question assumptions:** "Will users trust AI suggestions without explanation?"
-4. **Point out gaps:** "What happens when users dismiss bad recommendations?"
-5. **Suggest testing:** "We should prototype this before building"
-
-## Example Feedback
-
-> **User problem alignment:**
-> - User research shows prioritization overwhelm, but will recommendations reduce it or add noise?
-> - Users said they want to "think less" but will they trust AI to think for them?
-> - Are we solving the stated problem or the underlying cause?
->
-> **Experience questions:**
-> - Where do recommendations appear? Inbox? Task list?
-> - Can users dismiss forever or just "not now"?
-> - What if recommendations feel irrelevant? Does that break trust?
-> - How do users understand WHY something was recommended?
->
-> **Behavioral concerns:**
-> - Will users check recommendations daily or ignore after first week?
-> - What's the activation moment? Do they opt-in or is it automatic?
-> - If recommendations are wrong, do users lose trust in the whole product?
-> - Are we adding cognitive load by making users evaluate suggestions?
->
-> **Missing user research:**
-> - Do we have evidence users want proactive suggestions vs better search?
-> - What did users say when shown similar features in competitors?
-> - Have we tested lo-fi prototypes of this interaction?
->
-> **Suggestions:**
-> - Start with "suggested next task" (singular) not "recommendations" (plural)
-> - Show reasoning: "Based on your Q1 goal X and approaching deadline Y"
-> - Let users give feedback: thumbs up/down to train the system
-> - Make it optional: power users might not want this
+**🟡 High: Trust Recovery for Bad Recommendations Undefined**
+- **Impact:** First week recommendations shape perception; if wrong, users disengage permanently but we have no recovery mechanism.
+- **Recommendation:** Design explicit feedback loop: "Was this helpful? Yes/No/Why" and show user how their feedback improves recommendations. Make trust-building visible.

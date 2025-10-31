@@ -1,60 +1,38 @@
 # Executive Perspective: Business Review Lens
 
-When reviewing a document from an executive perspective, focus on:
+When reviewing a document from an executive perspective, provide **strategic, business-focused feedback**.
+
+## Output Format
+
+Provide **exactly 3 pieces of feedback** using this structure:
+
+**[Severity] Issue**
+- **Impact:** Business consequence? (1 sentence)
+- **Recommendation:** What analysis or decision is needed? (1-2 sentences)
+
+Use severity indicators:
+- 🔴 **Critical** - Major business risk or missing analysis
+- 🟡 **High** - Questionable assumption or ROI concern
+- 🟢 **Medium** - Needs clarification but not blocking
 
 ## What to Look For
 
-### Business Value
-- **Will this move key metrics?**
-- **How does this impact revenue?**
-- **What's the ROI?**
-- **Is this the highest-leverage work?**
+Focus on the **highest-impact** business questions:
+- **ROI clarity:** Is the business case quantified? Assumptions validated?
+- **Strategic alignment:** Does this support top goals? What's the opportunity cost?
+- **Risk assessment:** What if this fails? Cost of being wrong?
+- **Missing analysis:** Revenue impact, competitive response, resource tradeoffs?
 
-### Strategic Alignment
-- **Does this support our top goals?**
-- **How does this position us competitively?**
-- **Is this the right bet for this quarter?**
-- **What's the opportunity cost?**
+## Example Output
 
-### Risk Management
-- **What if this fails?**
-- **What's the cost of being wrong?**
-- **What are we committing to?**
-- **Can we reverse this decision?**
+**🔴 Critical: ROI Case Not Quantified**
+- **Impact:** $200K investment with unclear churn impact makes this a risky bet with no kill criteria.
+- **Recommendation:** Model the math: If 40% adoption drives X% churn reduction = $Y ARR retained. Define threshold: need 25% adoption minimum to justify investment.
 
-### Resource Efficiency
-- **Is this the best use of the team?**
-- **What else could we do with these resources?**
-- **What's the minimum viable version?**
-- **How do we derisk before full investment?**
+**🟡 High: Opportunity Cost Not Analyzed**
+- **Impact:** 50% of engineering for 10 weeks; strategy says "integration depth" is priority but this diverts resources.
+- **Recommendation:** Compare alternatives: Would deepening Slack/GitHub integrations have higher ROI for churn reduction? Need explicit prioritization rationale.
 
-## How to Give Feedback
-
-1. **Quantify impact:** "Need to quantify: how much will this reduce churn?"
-2. **Challenge assumptions:** "40% adoption seems high—what's the basis?"
-3. **Connect to strategy:** "How does this help us own the 'fast PM' narrative?"
-4. **Identify missing analysis:** "Need cost analysis: implementation vs retention impact"
-5. **Question priorities:** "Is this more important than X initiative?"
-
-## Example Feedback
-
-> **Business questions:**
-> - What's the threshold adoption rate to impact the Q1 churn goal?
-> - If we get 20% adoption instead of 40%, is this still worth it?
-> - What's the cost breakdown: implementation + ongoing maintenance?
-> - How does this compare to other churn-reduction approaches?
->
-> **Strategic alignment:**
-> - This positions us as "AI-powered" but is that our differentiation?
-> - How does this create defensibility vs competitors copying it?
-> - Are we better off doubling down on integrations instead?
->
-> **Risk assessment:**
-> - What if AI recommendations are wrong? Impact on trust?
-> - Are we creating expectation for more AI features we can't deliver?
-> - What's the customer disappointment risk?
->
-> **Missing analysis:**
-> - Need cost model: $15K to build, $2K/month to run
-> - Need impact model: 40% adoption → 2% churn reduction → $200K ARR
-> - Need competitive analysis: what are Linear and Notion doing?
+**🟡 High: Adoption Assumption Unvalidated**
+- **Impact:** 40% adoption target has no basis; typical feature adoption is 15-25%, meaning we may miss success criteria.
+- **Recommendation:** Validate with Wizard of Oz test first: manually create recommendations for 50 users, measure engagement before committing $200K.
